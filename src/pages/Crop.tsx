@@ -8,7 +8,7 @@ const Crop = () => {
               <div id="Navbar">
                   <nav className="navbar navbar-expand-lg">
                       <div className="container-fluid">
-                          <a id="pageTitle" className="navbar-brand" href="#">Dashboard</a>
+                          <a id="pageTitle" className="navbar-brand" href="#">Crops</a>
                           <span id="dateTime" className="ms-auto clock"></span>
                       </div>
                   </nav>
