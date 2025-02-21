@@ -1,4 +1,4 @@
-export declare class DashboardModel {
+export default class DashboardModel {
     staffCount: string;
     vehicleCount: string;
     equipmentCount: string;
