@@ -78,12 +78,33 @@ const fieldSlice = createSlice({
             .addCase(saveField.fulfilled, (state, action) => {
                 state.push(action.payload);
             })
+            .addCase(saveField.rejected, (state, action) => {
+                console.error("Failed to save field:", action.error.message);
+            })
+            .addCase(saveField.pending, (state,action) => {
+                console.error("Saving field...");
+            });
+        builder
             .addCase(getAllFields.fulfilled, (state, action) => {
                 return action.payload; // Replace state with fetched fields
             })
+            .addCase(getAllFields.rejected, (state, action) => {
+                console.error("Get All field :", action.error.message);
+            })
+            .addCase(getAllFields.pending, (state,action) => {
+                console.error("Getting field...");
+            });
+        builder
             .addCase(deleteFieldFromBackend.fulfilled, (state, action) => {
                 return state.filter(field => field.fieldCode !== action.payload);
             })
+            .addCase(deleteFieldFromBackend.rejected, (state, action) => {
+                console.error("Deleted field :", action.error.message);
+            })
+            .addCase(deleteFieldFromBackend.pending, (state,action) => {
+                console.error("Deleting field...");
+            });
+        builder
             .addCase(updateField.fulfilled, (state, action) => {
                 // Find and update the field in the state
                 const updatedField = action.payload;
@@ -92,12 +113,13 @@ const fieldSlice = createSlice({
                     state[index] = updatedField; // Update the field
                 }
             })
-            .addCase(saveField.rejected, (state, action) => {
-                console.error("Failed to save field:", action.error.message);
+            .addCase(updateField.rejected, (state, action) => {
+                console.error("updated field :", action.error.message);
             })
-            .addCase(saveField.pending, (state,action) => {
-                console.error("Saving field...");
+            .addCase(updateField.pending, (state,action) => {
+                console.error("Updating field...");
             });
+
     },
 })
 
