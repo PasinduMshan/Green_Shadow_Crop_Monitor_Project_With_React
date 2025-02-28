@@ -22,6 +22,7 @@ const Login = () => {
 
   useEffect(() => {
     if(isAuthenticated) {
+      alert("User logged In Successfully");
       navigate("/dashboard");
     }
   }, [isAuthenticated]);
